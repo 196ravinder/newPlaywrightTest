@@ -37,6 +37,6 @@ export class homePage extends basePage{
        }
        //await this.page.getByRole(locatorData.homePage.clickOnPlaceOrder).click();
        await this.page.getByRole(locatorData.homePage.clickOnPlaceOrder.role,{ name: locatorData.homePage.clickOnPlaceOrder.name }).click();
-
+       console.log("test");
     }
 }
