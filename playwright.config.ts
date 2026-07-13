@@ -6,12 +6,14 @@ export default defineConfig({
   fullyParallel: true,
   //retries:1,
   //headless: false,
-  workers:  1 ,
-  reporter:[['html', {open :'never'}]],
+  workers: 1,
+  reporter: [['html', { open: 'never' }]],
+  timeout: 10000,
 
   use: {
     baseURL: 'https://rahulshettyacademy.com/client/#/auth/login',
-headless:false,
+    headless: false,
+    actionTimeout: 15000,
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on-first-retry',
   },
@@ -21,6 +23,7 @@ headless:false,
     {
       name: 'chromium',
       use: { ...devices['Desktop Chrome'] },
+
     },
 
     // {
@@ -54,5 +57,5 @@ headless:false,
     // },
   ],
 
- 
+
 });

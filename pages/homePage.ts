@@ -34,7 +34,9 @@ export class homePage extends basePage {
             }
 
         }
-        //await this.page.getByRole(locatorData.homePage.clickOnPlaceOrder).click();
-        await this.page.getByRole(locatorData.homePage.clickOnPlaceOrder.role, { name: locatorData.homePage.clickOnPlaceOrder.name }).click();
+        await this.page.getByRole(locatorData.homePage.countryOption.role, { name: locatorData.homePage.countryOption.name }).click();
+        await this.page.locator(locatorData.homePage.clickOnOrderPlaceButton).click();
+        const OrderSuccessFuldata = await this.page.locator(locatorData.homePage.OrderSuccessfull).textContent();
+        await expect(this.page.locator(locatorData.homePage.OrderSuccessfull)).toHaveText(userData.OrderSuccessful);
     }
 }
