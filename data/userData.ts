@@ -5,8 +5,10 @@ password:"rvi97997",
 loginSuccessFullMsg:"Login Successfully",
 productName:"ZARA COAT 3",
 selectCountry:"Ind",
-selectionData:" India",
+selectionData:"India",
 OrderSuccessful:"Order Placed Successfully",
+thankYouText:" Thankyou for the order. ",
+
 
 
 }

@@ -16,8 +16,17 @@ export const locatorData = {
         selectCountry: "//input[@placeholder='Select Country']",
         countryDropDown: "//section[@class='ta-results list-group ng-star-inserted']",
         countryOption: { role: 'textbox', name: 'Select Country' },
-        clickOnOrderPlaceButton:":text('PLACE ORDER')",
-        OrderSuccessfull:"div[aria-label='Order Placed Successfully']",
-
+        clickOnOrderPlaceButton: ":text('PLACE ORDER')",
+        OrderSuccessfull: "div[aria-label='Order Placed Successfully']",
+        thankYouForOrder: ".hero-primary",
+        orderID: ".em-spacer-1 .ng-star-inserted",
     },
+    orderLoc: {
+        clickOnOrders:".fa.fa-handshake-o",
+        orderIDinOrderPage:"//tbody/tr[@class='ng-star-inserted']/th",
+        orderHistoryViewButton:".btn.btn-primary",
+        orderSummeryID:".col-text.-main",
+        
+
+    }
 }
