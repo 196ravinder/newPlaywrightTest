@@ -26,7 +26,39 @@ export const locatorData = {
         orderIDinOrderPage:"//tbody/tr[@class='ng-star-inserted']/th",
         orderHistoryViewButton:".btn.btn-primary",
         orderSummeryID:".col-text.-main",
-        
+
+
+    },
+    Assignment1:{
+        email:"you@email.com",
+        password:"••••••",
+        logInBtn:"button",
+        verifyHome:"View all →",
+        clickOnAdmin:"Admin",
+        manageEvent:"Manage Events",
+        Title:"Title",
+        Description:"Describe the event…",
+        City:"e.g. Bangalore",
+        Venue:"Venue",
+        EventDate:"input[id='event-date-&-time']",
+        Price:"0.00",
+        TotalSeats:"e.g. 500",
+        SubmitEvents:"+ Add Event",
+        SelectEventName:"event-card",
+        selectEventName2:"Test Evet Titel",
+        testTitel:"//article[@id='event-card']/div/a",
+        booknow:"book-now-btn",
+        BookingName:"Your full name",
+        bookingEmailID:"you@email.com",
+        phoneNumber:"Phone Number",
+        increaseSeat:"+",
+        confirmBooking:"Confirm Booking",
+        bookingConfirmed:" .booking-ref",
+        viewMyBooking:"View My Bookings",
+        firstBooking:"#booking-card",
+        firstBookingID:".booking-ref",
+        availableSeats:"//article/div/div/div/span",
+
 
     }
 }

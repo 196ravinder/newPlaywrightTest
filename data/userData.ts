@@ -8,7 +8,16 @@ selectCountry:"Ind",
 selectionData:"India",
 OrderSuccessful:"Order Placed Successfully",
 thankYouText:" Thankyou for the order. ",
-
-
+AssignmentEmail:"rvi97997@gmail.com",
+AssignmentPass:"Rvi@97997",
+AssignmeneManageEvent:"Manage Events",
+AssignTitle:"Test Evet Titel",
+AssignDesc:"Test Event Description ",
+AssignCity:"Delhi",
+AssignVenue:"CP",
+AssignDate:"2027-08-01T10:30",
+AssignPrice:"100",
+AssignSeat:"50",
+bookingConfirmedMsg:"Booking Confirmed! 🎉",
 
 }

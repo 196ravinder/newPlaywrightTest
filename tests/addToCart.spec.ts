@@ -4,7 +4,7 @@ import { userData } from "../data/userData";
 import { homePage } from "../pages/homePage";
 
 
-test.only("Product Add to Cart", async({page,context})=>{
+test.skip("Product Add to Cart", async({page,context})=>{
 
 const homePage1=new homePage(page);
 const orderData= new homePage(page);

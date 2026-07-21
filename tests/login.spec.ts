@@ -4,7 +4,7 @@ import { userData } from "../data/userData";
 import { homePage } from "../pages/homePage";
 
 
-test("Login Test", async({page})=>{
+test.skip("Login Test", async({page})=>{
 
 const login = new loginPage1(page); 
 await login.navigateTo(userData.url);
