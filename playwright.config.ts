@@ -11,11 +11,13 @@ export default defineConfig({
   timeout: 10000,
 
   use: {
-    baseURL: 'https://rahulshettyacademy.com/client/#/auth/login',
+    // baseURL: 'https://rahulshettyacademy.com/client/#/auth/login',
+   // baseURL:'https://restful-booker.herokuapp.com',
     headless: false,
     actionTimeout: 15000,
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
-    trace: 'on-first-retry',
+    trace: 'on',
+    screenshot:'on',
   },
 
   /* Configure projects for major browsers */

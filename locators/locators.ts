@@ -15,7 +15,7 @@ export const locatorData = {
         clickOnCheckoutButton: "//li/button[@class='btn btn-primary']",
         selectCountry: "//input[@placeholder='Select Country']",
         countryDropDown: "//section[@class='ta-results list-group ng-star-inserted']",
-        countryOption: { role: 'textbox', name: 'Select Country' },
+        countryOption: { role: 'textbox' as const , name: 'Select Country' },
         clickOnOrderPlaceButton: ":text('PLACE ORDER')",
         OrderSuccessfull: "div[aria-label='Order Placed Successfully']",
         thankYouForOrder: ".hero-primary",
@@ -26,8 +26,16 @@ export const locatorData = {
         orderIDinOrderPage:"//tbody/tr[@class='ng-star-inserted']/th",
         orderHistoryViewButton:".btn.btn-primary",
         orderSummeryID:".col-text.-main",
-
-
+        orderHeading: "Your Orders",
+        orderId:"Order Id",
+        productImage:"Product Image",
+        productName:"Name",
+        productPrice:"Price",
+        productOrderDate:"Ordered Date",
+        productView:"View",
+        productDelete:"Delete",
+        productViewBtnClick:"View",
+        productDeleteBtnClick:"Delete"
     },
     Assignment1:{
         email:"you@email.com",

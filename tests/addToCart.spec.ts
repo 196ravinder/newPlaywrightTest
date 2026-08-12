@@ -1,17 +1,18 @@
 import { test } from "@playwright/test";
-import { loginPage1 } from "../pages/loginPage";
+import { addToCart } from "../pages/addToCart";
 import { userData } from "../data/userData";
-import { homePage } from "../pages/homePage";
+import { loginPage } from "../pages/loginPage";
 
+test("Product Add to Cart", async ({ browser }) => {
+  const context = await browser.newContext({
+    storageState: "auth.json",
+  });
 
-test.skip("Product Add to Cart", async({page,context})=>{
-
-const homePage1=new homePage(page);
-const orderData= new homePage(page);
-const login = new loginPage1(page); 
-await login.navigateTo(userData.url);
-await login.loginTestAcademy();
-await homePage1.addToCart();
-await orderData.orderPageFun();
-
-})
+  const page = await context.newPage();
+  const homePage1 = new addToCart(browser, page);
+  const login = new loginPage(browser,page); 
+  await login.navigateTo(userData.url);
+  await homePage1.addToCart();
+  await homePage1.orderPageFun();
+  await context.close();
+});

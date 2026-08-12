@@ -1,15 +1,17 @@
-import { Page } from "@playwright/test";
+import { Browser, BrowserContext, Page } from "@playwright/test";
 
-export class basePage{
-    page:any
+export class basePage {
+  protected browser: Browser;
+  protected context: BrowserContext;
+  protected page: Page;
 
-    constructor (page:any){
-        this.page=page;
-    }
-    async navigateTo(url:any){
-        await this.page.goto(url);
-        //await this.page.waitForLoadState('networkidle');
-        //await this.page.locator("#burgundy").waitFor();
-    }
-   
+  constructor(browser: Browser, page: Page) {
+    this.browser = browser;
+    this.page = page;
+    this.context = page.context();
+  }
+
+  async navigateTo(url: string) {
+    await this.page.goto(url);
+  }
 }

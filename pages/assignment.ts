@@ -1,10 +1,10 @@
 import { locatorData } from "../locators/locators";
 import { userData } from "../data/userData"
 import { basePage } from "./basePage";
-import { expect } from "@playwright/test";
+import { Browser, expect,Page } from "@playwright/test";
 
 export class assignment1 extends basePage {
-    constructor(page: any) {
+    constructor( page:Page){
         super(page);
     }
     async login() {

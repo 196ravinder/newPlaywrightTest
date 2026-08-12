@@ -1,16 +1,15 @@
-import { expect } from "@playwright/test";
+import { Browser, expect, Page } from "@playwright/test";
 import { locatorData } from "../locators/locators";
 import { userData } from "../data/userData";
 import { basePage } from "./basePage";
 
-export class homePage extends basePage {
-
-    constructor(page: any) {
-        super(page)
-    }
+export class addToCart extends basePage {
+constructor(browser:Browser,page:Page){
+    super(browser,page);
+}
     async addToCart() {
         await this.page.locator(locatorData.homePage.pageLoadWaitFor).waitFor();
-        const products = await this.page.locator(locatorData.homePage.selectProduct);
+        const products = this.page.locator(locatorData.homePage.selectProduct);
         const productCount = await products.count();
         // await this.page.locator(locatorData.homePage.selectProduct)
         for (let i = 0; i < productCount; i++) {
@@ -22,29 +21,35 @@ export class homePage extends basePage {
         await this.page.locator(locatorData.homePage.clickOnCartButton).click();
         await this.page.locator(locatorData.homePage.clickOnCheckoutButton).click();
         await this.page.locator(locatorData.homePage.selectCountry).pressSequentially(userData.selectCountry, { delay: 50 });
-        const countryDropdownList = await this.page.locator(locatorData.homePage.countryDropDown);
+        const countryDropdownList = this.page.locator(locatorData.homePage.countryDropDown);
         await countryDropdownList.waitFor();
         const optionsDropDownListCountry = await countryDropdownList.locator('button').count();
 
         for (let i = 0; i < optionsDropDownListCountry; i++) {
             const countryText = await countryDropdownList.locator('button').nth(i).textContent();
-            if (countryText.trim() === userData.selectionData) {
+            if (countryText?.trim() === userData.selectionData) {
                 await countryDropdownList.locator('button').nth(i).click();
                 break;
             }
 
         }
-        await this.page.getByRole(locatorData.homePage.countryOption.role, { name: locatorData.homePage.countryOption.name }).click();
+        await this.page.getByRole(locatorData.homePage.countryOption.role,{name: locatorData.homePage.countryOption.name,}).click();
         await this.page.locator(locatorData.homePage.clickOnOrderPlaceButton).click();
-        const OrderSuccessFuldata = await this.page.locator(locatorData.homePage.OrderSuccessfull).textContent();
+      //  const OrderSuccessFuldata = await this.page.locator(locatorData.homePage.OrderSuccessfull).textContent();
         await expect(this.page.locator(locatorData.homePage.OrderSuccessfull)).toHaveText(userData.OrderSuccessful);
         await expect(this.page.locator(locatorData.homePage.thankYouForOrder)).toHaveText(userData.thankYouText);
 
     }
     async orderPageFun() {
-        const orderIDtextData = await this.page.locator(locatorData.homePage.orderID).textContent();
-        const orderDataArray = orderIDtextData.split("|");
+        const orderIDTextData = await this.page.locator(locatorData.homePage.orderID).textContent();
+         if (!orderIDTextData) {
+      throw new Error("Order ID text was not found");
+    }
+        const orderDataArray = orderIDTextData.split("|");
         const orderDataValue = orderDataArray[1].trim();
+        if (!orderDataValue) {
+      throw new Error("Order ID could not be extracted");
+    }
         await this.page.locator(locatorData.orderLoc.clickOnOrders).click();
         // const allOrderList=  await this.page.locator(locatorData.orderLoc.orderIDinOrderPage).allTextContents();
         await this.page.locator(locatorData.orderLoc.orderIDinOrderPage).first().waitFor();
